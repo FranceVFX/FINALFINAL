@@ -1,60 +1,58 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 /** ✅ Overlay fijo arriba-derecha (Discord + Instagram) */
 function SocialTopRight() {
   const wrapStyle: React.CSSProperties = {
-    position: "fixed",
+    position: 'fixed',
     top: 26,
     right: 26,
     zIndex: 9999,
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
     gap: 14,
-    padding: "16px 18px",
+    padding: '16px 18px',
     borderRadius: 22,
-    background: "rgba(0,0,0,0.55)",
-    backdropFilter: "blur(10px)",
-    border: "1px solid rgba(255,255,255,0.10)",
-  };
+    background: 'rgba(0,0,0,0.55)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255,255,255,0.10)',
+  }
 
   const dividerStyle: React.CSSProperties = {
     width: 1,
     height: 28,
-    background: "rgba(255,255,255,0.45)",
+    background: 'rgba(255,255,255,0.45)',
     borderRadius: 999,
-  };
+  }
 
   const IconBtn = ({
     href,
     label,
     children,
   }: {
-    href: string;
-    label: string;
-    children: React.ReactNode;
+    href: string
+    label: string
+    children: React.ReactNode
   }) => {
-    const [hover, setHover] = useState(false);
+    const [hover, setHover] = useState(false)
 
     const btnStyle: React.CSSProperties = {
       width: 48,
       height: 48,
       borderRadius: 999,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      border: hover
-        ? "1px solid rgba(255,255,255,0.70)"
-        : "1px solid rgba(255,255,255,0.35)",
-      background: hover ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.02)",
-      boxShadow: hover ? "0 0 22px rgba(255,255,255,0.35)" : "none",
-      transform: hover ? "translateY(-1px)" : "translateY(0px)",
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      border: hover ? '1px solid rgba(255,255,255,0.70)' : '1px solid rgba(255,255,255,0.35)',
+      background: hover ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.02)',
+      boxShadow: hover ? '0 0 22px rgba(255,255,255,0.35)' : 'none',
+      transform: hover ? 'translateY(-1px)' : 'translateY(0px)',
       transition:
-        "transform 160ms ease, box-shadow 160ms ease, border 160ms ease, background 160ms ease",
-      cursor: "pointer",
-      textDecoration: "none",
-    };
+        'transform 160ms ease, box-shadow 160ms ease, border 160ms ease, background 160ms ease',
+      cursor: 'pointer',
+      textDecoration: 'none',
+    }
 
     return (
       <a
@@ -69,15 +67,12 @@ function SocialTopRight() {
       >
         {children}
       </a>
-    );
-  };
+    )
+  }
 
   return (
     <div style={wrapStyle}>
-      <IconBtn
-        href="https://discord.com/users/459559834711490561"
-        label="Discord"
-      >
+      <IconBtn href="https://discord.com/users/459559834711490561" label="Discord">
         {/* Discord icon */}
         <svg
           width="22"
@@ -121,15 +116,14 @@ function SocialTopRight() {
         </svg>
       </IconBtn>
     </div>
-  );
+  )
 }
 
 /** ✅ Botón fijo abajo-derecha a #contact (con hover, sin CSS externo) */
 function ContactButton() {
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(false)
 
-  const font =
-    "Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+  const font = 'Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif'
 
   return (
     <a
@@ -137,28 +131,25 @@ function ContactButton() {
       aria-label="Contact me"
       title="Contact me"
       style={{
-        position: "fixed",
+        position: 'fixed',
         right: 26,
         bottom: 26,
         zIndex: 9999,
-        display: "flex",
-        alignItems: "center",
+        display: 'flex',
+        alignItems: 'center',
         gap: 12,
-        padding: "14px 22px",
+        padding: '14px 22px',
         borderRadius: 999,
-        textDecoration: "none",
-        color: "rgba(255,255,255,0.92)",
+        textDecoration: 'none',
+        color: 'rgba(255,255,255,0.92)',
         fontWeight: 800,
         fontFamily: font,
-        background: "rgba(0,0,0,0.55)",
-        backdropFilter: "blur(10px)",
-        border: hover
-          ? "1px solid rgba(255,255,255,0.70)"
-          : "1px solid rgba(255,255,255,0.35)",
-        boxShadow: hover ? "0 0 22px rgba(255,255,255,0.35)" : "none",
-        transform: hover ? "translateY(-1px)" : "translateY(0px)",
-        transition:
-          "transform 160ms ease, box-shadow 160ms ease, border 160ms ease",
+        background: 'rgba(0,0,0,0.55)',
+        backdropFilter: 'blur(10px)',
+        border: hover ? '1px solid rgba(255,255,255,0.70)' : '1px solid rgba(255,255,255,0.35)',
+        boxShadow: hover ? '0 0 22px rgba(255,255,255,0.35)' : 'none',
+        transform: hover ? 'translateY(-1px)' : 'translateY(0px)',
+        transition: 'transform 160ms ease, box-shadow 160ms ease, border 160ms ease',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -179,112 +170,111 @@ function ContactButton() {
       </svg>
       <span>Contact me</span>
     </a>
-  );
+  )
 }
 
 /** ✅ Sección de contacto (igual a la que venías usando) */
 function ContactSection() {
-  const font =
-    "Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+  const font = 'Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif'
 
   const pillStyle: React.CSSProperties = {
-    border: "1px solid rgba(255,255,255,0.35)",
-    borderRadius: "999px",
-    padding: "18px 26px",
-    background: "rgba(255,255,255,0.02)",
-    minWidth: "320px",
-    flex: "1 1 320px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
+    border: '1px solid rgba(255,255,255,0.35)',
+    borderRadius: '999px',
+    padding: '18px 26px',
+    background: 'rgba(255,255,255,0.02)',
+    minWidth: '320px',
+    flex: '1 1 320px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 
   const iconBoxStyle: React.CSSProperties = {
-    width: "42px",
-    height: "42px",
-    borderRadius: "14px",
-    background: "rgba(57,255,20,0.14)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flex: "0 0 auto",
-  };
+    width: '42px',
+    height: '42px',
+    borderRadius: '14px',
+    background: 'rgba(57,255,20,0.14)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: '0 0 auto',
+  }
 
   const labelStyle: React.CSSProperties = {
-    fontSize: "14px",
-    color: "rgba(255,255,255,0.55)",
+    fontSize: '14px',
+    color: 'rgba(255,255,255,0.55)',
     fontWeight: 600,
     fontFamily: font,
     lineHeight: 1,
-    textAlign: "center",
-    width: "100%",
-  };
+    textAlign: 'center',
+    width: '100%',
+  }
 
   const handleStyle: React.CSSProperties = {
-    fontSize: "34px",
+    fontSize: '34px',
     fontWeight: 900,
-    letterSpacing: "-0.02em",
+    letterSpacing: '-0.02em',
     fontFamily: font,
     lineHeight: 1,
-    textAlign: "center",
-  };
+    textAlign: 'center',
+  }
 
   const contentColStyle: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-    gap: "10px",
-  };
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+    gap: '10px',
+  }
 
   const handleRowStyle: React.CSSProperties = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "12px",
-  };
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '12px',
+  }
 
   return (
     <section
       id="contact"
       style={{
-        width: "100%",
-        padding: "120px 24px 140px",
-        display: "flex",
-        justifyContent: "center",
+        width: '100%',
+        padding: '120px 24px 140px',
+        display: 'flex',
+        justifyContent: 'center',
         fontFamily: font,
       }}
     >
       <div
         style={{
-          width: "100%",
-          maxWidth: "1100px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          gap: "80px",
+          width: '100%',
+          maxWidth: '1100px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          gap: '80px',
         }}
       >
         <div
           style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
-          <span style={{ color: "#39ff14", fontSize: "18px", fontWeight: 700 }}>
+          <span style={{ color: '#39ff14', fontSize: '18px', fontWeight: 700 }}>
             Commissions open!
           </span>
 
           <h2
             style={{
-              marginTop: "14px",
-              fontSize: "64px",
+              marginTop: '14px',
+              fontSize: '64px',
               lineHeight: 1,
               fontWeight: 900,
-              letterSpacing: "-0.02em",
+              letterSpacing: '-0.02em',
               fontFamily: font,
             }}
           >
@@ -293,9 +283,9 @@ function ContactSection() {
 
           <p
             style={{
-              marginTop: "18px",
-              fontSize: "22px",
-              color: "rgba(255,255,255,0.70)",
+              marginTop: '18px',
+              fontSize: '22px',
+              color: 'rgba(255,255,255,0.70)',
               fontWeight: 500,
               fontFamily: font,
             }}
@@ -305,13 +295,13 @@ function ContactSection() {
 
           <div
             style={{
-              marginTop: "44px",
-              width: "100%",
-              maxWidth: "900px",
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "22px",
+              marginTop: '44px',
+              width: '100%',
+              maxWidth: '900px',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '22px',
             }}
           >
             <div style={pillStyle}>
@@ -362,14 +352,14 @@ function ContactSection() {
           </div>
         </div>
 
-        <div style={{ width: "100%" }}>
+        <div style={{ width: '100%' }}>
           <h2
             style={{
-              fontSize: "64px",
+              fontSize: '64px',
               lineHeight: 1,
               fontWeight: 900,
-              letterSpacing: "-0.02em",
-              marginBottom: "26px",
+              letterSpacing: '-0.02em',
+              marginBottom: '26px',
               fontFamily: font,
             }}
           >
@@ -378,12 +368,12 @@ function ContactSection() {
 
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "14px",
-              fontSize: "22px",
-              color: "rgba(255,255,255,0.85)",
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '14px',
+              fontSize: '22px',
+              color: 'rgba(255,255,255,0.85)',
               fontWeight: 600,
               fontFamily: font,
             }}
@@ -405,68 +395,62 @@ function ContactSection() {
               </svg>
             </div>
 
-            <span style={{ fontWeight: 700, fontFamily: font }}>
-              tomasfrance02@gmail.com
-            </span>
+            <span style={{ fontWeight: 700, fontFamily: font }}>tomasfrance02@gmail.com</span>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export default function Home() {
   const sections = [
     {
-      title: "Vlogs",
+      title: 'Vlogs',
       embeds: [
-        "https://www.youtube.com/embed/wrFC430gSdE",
-        "https://www.youtube.com/embed/Pj1Qgyj4QeM",
-        "https://www.youtube.com/embed/iC1g7wR9fhc",
-        "https://www.youtube.com/embed/HDEnSJDw3a0",
-        "https://www.youtube.com/embed/JSPxh0FhPGU",
-        "https://www.youtube.com/embed/cw2eSNLIM2c",
+        'https://www.youtube.com/embed/wrFC430gSdE',
+        'https://www.youtube.com/embed/Pj1Qgyj4QeM',
+        'https://www.youtube.com/embed/iC1g7wR9fhc',
+        'https://www.youtube.com/embed/HDEnSJDw3a0',
+        'https://www.youtube.com/embed/JSPxh0FhPGU',
+        'https://www.youtube.com/embed/cw2eSNLIM2c',
       ],
     },
     {
-      title: "Gaming",
+      title: 'Gaming',
       embeds: [
-        "https://www.youtube.com/embed/rs9RSKviq38",
-        "https://www.youtube.com/embed/159ZXV45yZ8",
-        "https://www.youtube.com/embed/dLcvTCAQShU",
-        "https://www.youtube.com/embed/UxFM3J31cXs?si=glSSH_aDa2wONeGo",
-        "https://www.youtube.com/embed/6RdLl1IOb3A",
-        "https://www.youtube.com/embed/LM96MTRSdBM?si=1lYd51cpcKniMHDp",
+        'https://www.youtube.com/embed/rs9RSKviq38',
+        'https://www.youtube.com/embed/159ZXV45yZ8',
+        'https://www.youtube.com/embed/dLcvTCAQShU',
+        'https://www.youtube.com/embed/UxFM3J31cXs?si=glSSH_aDa2wONeGo',
+        'https://www.youtube.com/embed/6RdLl1IOb3A',
+        'https://www.youtube.com/embed/LM96MTRSdBM?si=1lYd51cpcKniMHDp',
       ],
     },
     {
-      title: "Educacion",
+      title: 'Educacion',
       embeds: [
-        "https://www.youtube.com/embed/Z-11MBl5zkA",
-        "https://www.youtube.com/embed/ELSm-G201Ls",
-        "https://www.youtube.com/embed/JjQ1m0SrTFo",
+        'https://www.youtube.com/embed/Z-11MBl5zkA',
+        'https://www.youtube.com/embed/ELSm-G201Ls',
+        'https://www.youtube.com/embed/JjQ1m0SrTFo',
       ],
     },
     {
-      title: "Shorts",
+      title: 'Shorts',
       embeds: [
-        "https://www.youtube.com/embed/feHkDN6JflQ",
-        "https://www.youtube.com/embed/UHN-dYwQqnk",
-        "https://www.youtube.com/embed/DstIYTQur3Q",
-        "https://www.youtube.com/embed/-gAT0uvi9Fs",
-        "https://www.youtube.com/embed/xnmW-vAM1Sk?controls=0&modestbranding=1&rel=0",
-        "https://www.youtube.com/embed/U-k6SvvLvDk?controls=0&modestbranding=1&rel=0",
-        "https://www.youtube.com/embed/XtTnhHYe9Ec?controls=0&modestbranding=1&rel=0",
-        "https://www.youtube.com/embed/PZ2MP0HbLbw?controls=0&modestbranding=1&rel=0",
+        'https://www.youtube.com/embed/feHkDN6JflQ',
+        'https://www.youtube.com/embed/UHN-dYwQqnk',
+        'https://www.youtube.com/embed/DstIYTQur3Q',
+        'https://www.youtube.com/embed/-gAT0uvi9Fs',
+        'https://www.youtube.com/embed/xnmW-vAM1Sk?controls=0&modestbranding=1&rel=0',
+        'https://www.youtube.com/embed/U-k6SvvLvDk?controls=0&modestbranding=1&rel=0',
+        'https://www.youtube.com/embed/XtTnhHYe9Ec?controls=0&modestbranding=1&rel=0',
+        'https://www.youtube.com/embed/PZ2MP0HbLbw?controls=0&modestbranding=1&rel=0',
       ],
     },
-  ];
+  ]
 
-  const VideoCard = ({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) => (
+  const VideoCard = ({ children }: { children: React.ReactNode }) => (
     <div
       className="
         relative overflow-hidden rounded-[36px]
@@ -479,7 +463,7 @@ export default function Home() {
     >
       {children}
     </div>
-  );
+  )
 
   const VideoFrame = ({ src, title }: { src: string; title: string }) => (
     <iframe
@@ -491,7 +475,7 @@ export default function Home() {
       className="absolute inset-0 w-full h-full border-0 outline-none"
       style={{ border: 0, outline: 0 }}
     />
-  );
+  )
 
   const ShortCard = ({ children }: { children: React.ReactNode }) => (
     <div
@@ -507,11 +491,11 @@ export default function Home() {
     >
       {children}
     </div>
-  );
+  )
 
   const renderTwoRowGrid = (items: string[], sectionTitle: string) => {
-    const topRow = items.slice(0, 3);
-    const bottomRow = items.slice(3, 6);
+    const topRow = items.slice(0, 3)
+    const bottomRow = items.slice(3, 6)
 
     return (
       <div className="w-full flex flex-col items-center">
@@ -536,8 +520,8 @@ export default function Home() {
           </div>
         )}
       </div>
-    );
-  };
+    )
+  }
 
   const renderWideSection = (embeds: string[], title: string) => {
     if (embeds.length <= 3) {
@@ -549,10 +533,10 @@ export default function Home() {
             </VideoCard>
           ))}
         </div>
-      );
+      )
     }
-    return renderTwoRowGrid(embeds, title);
-  };
+    return renderTwoRowGrid(embeds, title)
+  }
 
   const renderShorts = (embeds: string[]) => {
     return (
@@ -565,8 +549,8 @@ export default function Home() {
           ))}
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <main className="bg-[#1a1a1a] text-white overflow-x-hidden w-full">
@@ -590,7 +574,7 @@ export default function Home() {
       {/* ABOUT */}
       <section className="flex flex-col items-center justify-start text-center px-6 pt-0 pb-24 gap-0">
         <h2 className="mb-0 flex flex-wrap items-baseline justify-center gap-3 text-[96px] md:text-[128px] leading-none">
-          <span className="font-montserrat font-bold text-white">Hi, I'm</span>
+          <span className="font-montserrat font-bold text-white">Hi, Im</span>
           <span className="font-corinthia font-[200] text-[220px] md:text-[290px] text-[#7800ad] leading-none">
             France
           </span>
@@ -598,22 +582,27 @@ export default function Home() {
 
         <p className="mt-[-80px] md:mt-[-120px] max-w-5xl text-white/70 font-montserrat font-light text-7xl md:text-8xl lg:text-9xl leading-[1.6] tracking-[0.12em]">
           <span className="block">
-            Professional Colorist and post-production expert with a{" "}
+            Professional Colorist and post-production expert with a{' '}
             <span className="text-[#c645ff]">7-year track record</span>
           </span>
           <span className="block">
-            Dedicated to delivering{" "}
-            <span className="text-[#c645ff]">high-quality</span> visual narratives
+            Dedicated to delivering <span className="text-[#c645ff]">high-quality</span> visual
+            narratives
           </span>
           <span className="block">
-            through expert{" "}
+            through expert{' '}
             <span className="text-[#c645ff]">
               motion graphics, storytelling, sound design and colorist
             </span>
           </span>
         </p>
       </section>
- <br></br><br></br><br></br><br></br><br></br><br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       {/* ✅ CARRUSEL VIDEO (solo el título + video) */}
       <section className="px-96 pb-98">
         <div className="mx-auto max-w-7xl text-center">
@@ -636,17 +625,18 @@ export default function Home() {
           </div>
         </div>
       </section>
-<br></br><br></br>
+      <br></br>
+      <br></br>
       {/* SECTIONS */}
       <section className="px-6 pb-44">
         <div className="mx-auto max-w-7xl">
           {sections.map((section) => {
             const sectionPadding =
-              section.title === "Educacion"
-                ? "pt-[100px] pb-[180px]"
-                : section.title === "Vlogs" || section.title === "Gaming"
-                ? "py-[100px]"
-                : "py-24";
+              section.title === 'Educacion'
+                ? 'pt-[100px] pb-[180px]'
+                : section.title === 'Vlogs' || section.title === 'Gaming'
+                  ? 'py-[100px]'
+                  : 'py-24'
 
             return (
               <div key={section.title} className={`${sectionPadding} space-y-12`}>
@@ -655,17 +645,17 @@ export default function Home() {
                 </h3>
 
                 <div className="w-full flex flex-col items-center">
-                  {section.title === "Shorts"
+                  {section.title === 'Shorts'
                     ? renderShorts(section.embeds || [])
                     : renderWideSection(section.embeds || [], section.title)}
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </section>
 
       <ContactSection />
     </main>
-  );
+  )
 }
