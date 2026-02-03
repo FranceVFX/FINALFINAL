@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-corinthia {
+  font-family: "Corinthia", cursive;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.video-row {
+  display: inline-flex;
+  gap: 24px;
+  padding: 6px;
+  scroll-snap-type: x mandatory;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.video-card {
+  position: relative;
+  width: clamp(280px, 30vw, 360px);
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0f0f0f;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+  scroll-snap-align: start;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.video-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.6);
+}
+
+.video-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
