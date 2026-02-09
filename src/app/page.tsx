@@ -642,10 +642,11 @@ export default function Home() {
         <div className="pointer-events-none absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-[#1a1a1a] z-10" />
       </section>
 
-      {/* ABOUT VIDEO (autoplay on view) */}
-      <section id="about-video" className="relative h-screen w-full overflow-hidden bg-[#1a1a1a]">
-        <AboutVideo />
-        <div className="pointer-events-none absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-[#1a1a1a] z-10" />
+      {/* ABOUT VIDEO */}
+      <section className="relative h-screen w-full bg-[#1a1a1a] overflow-hidden">
+        <div className="relative z-10 h-full w-full">
+          <AboutVideo />
+        </div>
       </section>
 
       {/* SECTIONS */}

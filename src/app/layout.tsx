@@ -1,4 +1,5 @@
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   icons: {
@@ -17,7 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#1a1a1a] text-white antialiased">{children}</body>
+      <body className="bg-[#1a1a1a] text-white antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
