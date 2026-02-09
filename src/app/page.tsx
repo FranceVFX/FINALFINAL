@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
-
+import React, { useState, useRef, useEffect } from 'react'
 /** ✅ Overlay fijo arriba-derecha (Discord + Instagram) */
 function SocialTopRight() {
   const wrapStyle: React.CSSProperties = {
@@ -325,7 +324,20 @@ function ContactSection() {
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
                   </div>
-                  <div style={handleStyle}>@tomi.francee</div>
+
+                  <a
+                    href="https://www.instagram.com/tomi.francee/"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      ...handleStyle,
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    @tomi.francee
+                  </a>
                 </div>
               </div>
             </div>
@@ -345,7 +357,19 @@ function ContactSection() {
                       <path d="M19.54 0c1.37 0 2.46 1.09 2.46 2.46v19.08c0 1.37-1.09 2.46-2.46 2.46H4.46C3.09 24 2 22.91 2 21.54V2.46C2 1.09 3.09 0 4.46 0h15.08zM7.2 16.7c1.62 1.2 3.3 1.8 4.8 1.8s3.18-.6 4.8-1.8c.2-.14.26-.42.14-.64-.92-1.7-1.3-3.6-1.14-5.64.02-.28-.16-.54-.44-.62-.92-.26-1.9-.4-2.94-.4s-2.02.14-2.94.4c-.28.08-.46.34-.44.62.16 2.04-.22 3.94-1.14 5.64-.12.22-.06.5.14.64zM10 13.7c-.55 0-1-.5-1-1.1s.45-1.1 1-1.1 1 .5 1 1.1-.45 1.1-1 1.1zm4 0c-.55 0-1-.5-1-1.1s.45-1.1 1-1.1 1 .5 1 1.1-.45 1.1-1 1.1z" />
                     </svg>
                   </div>
-                  <div style={handleStyle}>@tomi_editor</div>
+                  <a
+                    href="https://discord.com/users/459559834711490561"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      ...handleStyle,
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    @tomi_editor
+                  </a>
                 </div>
               </div>
             </div>
@@ -403,6 +427,42 @@ function ContactSection() {
   )
 }
 
+function AboutVideo() {
+  const videoRef = React.useRef<HTMLVideoElement | null>(null)
+
+  React.useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {})
+        } else {
+          video.pause()
+        }
+      },
+      { threshold: 0.6 },
+    )
+
+    observer.observe(video)
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <video
+      ref={videoRef}
+      src="/about-me.mp4"
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+  )
+}
+
 export default function Home() {
   const sections = [
     {
@@ -410,18 +470,29 @@ export default function Home() {
       embeds: [
         'https://www.youtube.com/embed/wrFC430gSdE',
         'https://www.youtube.com/embed/Pj1Qgyj4QeM',
-        'https://www.youtube.com/embed/iC1g7wR9fhc',
+        'https://www.youtube.com/embed/IUPfTzOgkxU?si=ATUNuGBpwOT0mm5y',
         'https://www.youtube.com/embed/HDEnSJDw3a0',
         'https://www.youtube.com/embed/JSPxh0FhPGU',
-        'https://www.youtube.com/embed/cw2eSNLIM2c',
       ],
     },
+
+    {
+      title: 'Color',
+      subtitle: 'Participe en el color y edición',
+      embeds: [
+        'https://www.youtube.com/embed/bT8LHzII2qc?si=8DHlc42GLXN0NduX',
+        'https://www.youtube.com/embed/KjBjLvjFQzY?si=DHxhg3TTatF3R3kB',
+        'https://www.youtube.com/embed/cw2eSNLIM2c?si=1DCr75Fz3yEBONoT',
+        'https://www.youtube.com/embed/l8x1kMMruxo?si=JXl8jUV7dPKdDWvz',
+      ],
+    },
+
     {
       title: 'Gaming',
       embeds: [
         'https://www.youtube.com/embed/rs9RSKviq38',
         'https://www.youtube.com/embed/159ZXV45yZ8',
-        'https://www.youtube.com/embed/dLcvTCAQShU',
+
         'https://www.youtube.com/embed/UxFM3J31cXs?si=glSSH_aDa2wONeGo',
         'https://www.youtube.com/embed/6RdLl1IOb3A',
         'https://www.youtube.com/embed/LM96MTRSdBM?si=1lYd51cpcKniMHDp',
@@ -439,7 +510,7 @@ export default function Home() {
       title: 'Shorts',
       embeds: [
         'https://www.youtube.com/embed/feHkDN6JflQ',
-        'https://www.youtube.com/embed/UHN-dYwQqnk',
+
         'https://www.youtube.com/embed/DstIYTQur3Q',
         'https://www.youtube.com/embed/-gAT0uvi9Fs',
         'https://www.youtube.com/embed/xnmW-vAM1Sk?controls=0&modestbranding=1&rel=0',
@@ -553,7 +624,7 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-[#1a1a1a] text-white overflow-x-hidden w-full">
+    <main className="bg-[#242424] text-white overflow-x-hidden w-full">
       {/* Overlays */}
       <SocialTopRight />
       <ContactButton />
@@ -571,62 +642,12 @@ export default function Home() {
         <div className="pointer-events-none absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-[#1a1a1a] z-10" />
       </section>
 
-      {/* ABOUT */}
-      <section className="flex flex-col items-center justify-start text-center px-6 pt-0 pb-24 gap-0">
-        <h2 className="mb-0 flex flex-wrap items-baseline justify-center gap-3 text-[96px] md:text-[128px] leading-none">
-          <span className="font-montserrat font-bold text-white">Hi, Im</span>
-          <span className="font-corinthia font-[200] text-[220px] md:text-[290px] text-[#7800ad] leading-none">
-            France
-          </span>
-        </h2>
-
-        <p className="mt-[-80px] md:mt-[-120px] max-w-5xl text-white/70 font-montserrat font-light text-7xl md:text-8xl lg:text-9xl leading-[1.6] tracking-[0.12em]">
-          <span className="block">
-            Professional Colorist and post-production expert with a{' '}
-            <span className="text-[#c645ff]">7-year track record</span>
-          </span>
-          <span className="block">
-            Dedicated to delivering <span className="text-[#c645ff]">high-quality</span> visual
-            narratives
-          </span>
-          <span className="block">
-            through expert{' '}
-            <span className="text-[#c645ff]">
-              motion graphics, storytelling, sound design and colorist
-            </span>
-          </span>
-        </p>
+      {/* ABOUT VIDEO (autoplay on view) */}
+      <section id="about-video" className="relative h-screen w-full overflow-hidden bg-[#1a1a1a]">
+        <AboutVideo />
+        <div className="pointer-events-none absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-[#1a1a1a] z-10" />
       </section>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      {/* ✅ CARRUSEL VIDEO (solo el título + video) */}
-      <section className="px-96 pb-98">
-        <div className="mx-auto max-w-7xl text-center">
-          <h2 className="text-white/80 font-montserrat font-semibold text-[32px] md:text-[26px] mb-6">
-            Marcas y creadores con los que trabajé:
-          </h2>
 
-          <div className="w-full flex justify-center">
-            <div className="relative overflow-hidden rounded-[28px] bg-black/30 w-full max-w-6xl">
-              <video
-                src="/carrucel.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-auto block"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <br></br>
-      <br></br>
       {/* SECTIONS */}
       <section className="px-6 pb-44">
         <div className="mx-auto max-w-7xl">
@@ -643,6 +664,12 @@ export default function Home() {
                 <h3 className="text-center text-[40px] md:text-[48px] font-montserrat font-black tracking-wide uppercase">
                   {section.title}
                 </h3>
+
+                {section.subtitle && (
+                  <p className="text-center text-[20px] md:text-[22px] text-white/70 font-montserrat font-medium -mt-6">
+                    {section.subtitle}
+                  </p>
+                )}
 
                 <div className="w-full flex flex-col items-center">
                   {section.title === 'Shorts'

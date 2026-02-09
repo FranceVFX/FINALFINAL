@@ -1,10 +1,12 @@
-import "./globals.css";
+import './globals.css'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -15,9 +17,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#1a1a1a] text-white antialiased">
-        {children}
-      </body>
+      <body className="bg-[#1a1a1a] text-white antialiased">{children}</body>
     </html>
-  );
+  )
 }
