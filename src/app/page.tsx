@@ -470,9 +470,9 @@ export default function Home() {
       embeds: [
         'https://www.youtube.com/embed/wrFC430gSdE',
         'https://www.youtube.com/embed/Pj1Qgyj4QeM',
-        'https://www.youtube.com/embed/IUPfTzOgkxU?si=ATUNuGBpwOT0mm5y',
+        'https://www.youtube.com/embed/c7zPcFqBzfU?si=dNlxW6rWRjvUEV3z&amp',
         'https://www.youtube.com/embed/HDEnSJDw3a0',
-        'https://www.youtube.com/embed/JSPxh0FhPGU',
+        'https://www.youtube.com/embed/JSPxh0FhPGU?si=3gnqBXWLZJIMfaNY',
       ],
     },
 
