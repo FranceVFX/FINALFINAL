@@ -468,9 +468,9 @@ export default function Home() {
     {
       title: 'Vlogs',
       embeds: [
-        'https://www.youtube.com/embed/wrFC430gSdE',
+        'https://www.youtube.com/embed/IUPfTzOgkxU?si=xRTUdjE2OlG-bcon',
         'https://www.youtube.com/embed/Pj1Qgyj4QeM',
-        'https://www.youtube.com/embed/c7zPcFqBzfU?si=dNlxW6rWRjvUEV3z&amp',
+        'https://www.youtube.com/embed/x5FoHqJtOZU?si=QAhAFPd6B7b_0ouN',
         'https://www.youtube.com/embed/HDEnSJDw3a0',
         'https://www.youtube.com/embed/JSPxh0FhPGU?si=3gnqBXWLZJIMfaNY',
       ],
